@@ -16,6 +16,9 @@ package marsexplorer;
 * @since   2019-03-14 
 */
 public class Rover {
+    int posX;
+    int posY;
+    
     public void place(int x, int y){
         //TODO: Finish This
     }
@@ -26,7 +29,7 @@ public class Rover {
     
     public String report(){
         //TODO: Finish This
-        return "";
+        return "NOT IMPLEMENTED";
     }
     
     
