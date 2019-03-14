@@ -16,8 +16,9 @@ package marsexplorer;
 * @since   2019-03-14 
 */
 public abstract class Input {
-    protected void executeCommand(String input){
+    protected String executeCommand(String input){
         //TODO: Finish This
+        return null;
     }
     
     private String[] format(String input){
