@@ -8,18 +8,15 @@
 package marsexplorer;
 
 /**
-* The application is a simulation of a mars explorer moving on a square 
-* tabletop, of dimensions 5 units x 5 units.The explorer is free to roam around
-* the surface of the table, but must be cannot move off the table.
+* Reads input commands from a file to be given to a rover object. Inherits most
+* of its methods from the Input class.
 *
 * @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */
-public class MarsExplorer {
-
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class CLInput extends Input {
+    public void runSim(){
+        
     }
-    
 }
