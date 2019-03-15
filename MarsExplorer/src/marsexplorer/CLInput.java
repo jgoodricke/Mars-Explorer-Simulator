@@ -7,6 +7,8 @@
 
 package marsexplorer;
 
+import java.util.Scanner;
+
 /**
 * Reads input commands from a file to be given to a rover object. Inherits most
 * of its methods from the Input class.
@@ -17,6 +19,8 @@ package marsexplorer;
 */
 public class CLInput extends Input {
     public void runSim(){
+        Scanner sc = new Scanner(System.in); //Used to read user input from console        
+
         //Stores console input and output
         String input = "";
         String output = "";
@@ -30,8 +34,8 @@ public class CLInput extends Input {
         
         //Get input from user and print output until user quits
         while(!input.equals("QUIT")){
-           input = System.console().readLine();
-           output = executeCommand("input");
+           input = sc.nextLine();
+           output = executeCommand(input);
            if (! output.equals("")){
                System.out.println(output);
            }
