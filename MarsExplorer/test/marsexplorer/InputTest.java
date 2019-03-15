@@ -36,8 +36,58 @@ public class InputTest {
         System.out.println("executeCommand");
         String expected = "3,4";
         Input instance = new InputImpl();
-        instance.executeCommand("PLACE 3,3" + expected);
+        instance.executeCommand("PLACE 3,3");
+        instance.executeCommand("MOVE " + expected);
+        assertEquals(instance.executeCommand("REPORT"), expected);
+    }
+    
+    /**
+     * Test Incorrect Command
+     */
+    @Test
+    public void testIncorrectCommand() {
+        System.out.println("executeCommand");
+        String expected = "3,3";
+        Input instance = new InputImpl();
+        instance.executeCommand("EXPLODE");
+        assertEquals(instance.executeCommand("REPORT"), expected);
+    }
+
+    /**
+     * Test Command with different formatting
+     */
+    @Test
+    public void testFormatting() {
+        System.out.println("executeCommand");
+        String expected = "3,3";
+        Input instance = new InputImpl();
+        instance.executeCommand(" place 3,3 ");
+        assertEquals(instance.executeCommand("REPORT"), expected);
+    }
+
+    /**
+     * Test Command with incorrect arguments
+     */
+    @Test
+    public void testIncorrectArguments() {
+        System.out.println("executeCommand");
+        String expected = "3,3";
+        Input instance = new InputImpl();
         instance.executeCommand("PLACE " + expected);
+        instance.executeCommand("MOVE three,four");
+        assertEquals(instance.executeCommand("REPORT"), expected);
+    }
+    //Too many arguments
+     /**
+     * Test Command with incorrect arguments
+     */
+    @Test
+    public void testTooManyArguments() {
+        System.out.println("executeCommand");
+        String expected = "3,3";
+        Input instance = new InputImpl();
+        instance.executeCommand("PLACE " + expected);
+        instance.executeCommand("MOVE 3,3,3");
         assertEquals(instance.executeCommand("REPORT"), expected);
     }
     
