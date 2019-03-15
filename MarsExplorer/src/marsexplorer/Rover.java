@@ -16,21 +16,60 @@ package marsexplorer;
 * @since   2019-03-14 
 */
 public class Rover {
-    int posX;
-    int posY;
+    //Position on grid
+    private int posX;
+    private int posY;
+    
+    //Grid maximum and minimun size
+    private int maxX;
+    private int maxY;
+    private int minX;
+    private int minY;
     
     public void place(int x, int y){
-        //TODO: Finish This
+        if(inBounds(x, y)){
+            posX = x;
+            posY = y;
+        }
+    }
+    
+    private boolean inBounds(int x, int y){
+        if(x <= maxX && x >= minX && y <= maxY && y >= minY ){
+            return true;
+        }
+        return false;
     }
     
     public void move(int x, int y){
-        //TODO: Finish This
+        //Check movement position is on the same row or collumn as current position (but not both)
+        if((x == posX || y == posY) && !(x == posX && y == posY)){
+            
+            //Check movement position is adjacent to current position
+            if((x == posX - 1 || x == posX + 1) || (y == posY - 1 || y == posY + 1)){
+                
+                //Check position to move to is on the table
+                if(inBounds(x, y)){
+                    posX = x;
+                    posY = y;
+                }
+            }
+        }
     }
     
     public String report(){
-        //TODO: Finish This
-        return "NOT IMPLEMENTED";
+        if(posX != -1 && posY != -1){
+            return Integer.toString(posX) + "," + Integer.toString(posY);
+        }
+        return "";
     }
     
+    public Rover(){
+        posX = -1;
+        posY = -1;
     
+        maxX = 5;
+        maxY = 5;
+        minX = 0;
+        minY = 0;
+    }
 }

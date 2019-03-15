@@ -26,25 +26,11 @@ public class RoverTest {
     @Test
     public void testPlace() {
         System.out.println("place");
-        int expectedX = 3;
-        int expectedY = 3;
-        Rover instance = new Rover();
-        instance.place(3, 3);
-        // TODO review te generated test code and remove the default call to fail.
-        assertTrue(instance.posX == expectedX && instance.posY == expectedY);
-    }
-    
-    /**
-     * Test rover can report position
-     */
-    @Test
-    public void testReport() {
-        System.out.println("place");
         String expected = "3,3";
         Rover instance = new Rover();
         instance.place(3, 3);
         // TODO review te generated test code and remove the default call to fail.
-        assertEquals(instance.report(), expected);
+        assertEquals(expected, instance.report());
     }
     
     /**
@@ -58,19 +44,19 @@ public class RoverTest {
         
         //Test Top Side
         instance.place(3, 6);
-        assertEquals("Failed on top side (first try)", instance.report(), expected);
+        assertEquals("Failed on top side (first try)", expected, instance.report());
         
         //Test Bottom Side
         instance.place(3, -1);
-        assertEquals("Failed on bottom side", instance.report(), expected);
+        assertEquals("Failed on bottom side", expected, instance.report());
        
         //Test Left Side
         instance.place(-1, 3);
-        assertEquals("Failed on left side", instance.report(), expected);
+        assertEquals("Failed on left side", expected, instance.report());
         
         //Test Right Side
         instance.place(6, 3);
-        assertEquals("Failed on right side", instance.report(), expected);   
+        assertEquals("Failed on right side", expected, instance.report());   
     }
 
     /**
@@ -83,7 +69,7 @@ public class RoverTest {
         Rover instance = new Rover();
         instance.place(3, 3);
         instance.move(3, 4);
-        assertEquals("failed moving up (first try)", instance.report(), expected);
+        assertEquals("failed moving up", expected, instance.report());
     }
     
     /**
@@ -95,7 +81,8 @@ public class RoverTest {
         String expected = "3,2";
         Rover instance = new Rover();
         instance.place(3, 3);
-        assertEquals(instance.report(), expected);
+        instance.move(3, 2);
+        assertEquals(expected, instance.report());
     }
     
     /**
@@ -108,7 +95,7 @@ public class RoverTest {
         Rover instance = new Rover();
         instance.place(3, 3);
         instance.move(2, 3);
-        assertEquals(instance.report(), expected);
+        assertEquals(expected, instance.report());
     }
     
     /**
@@ -121,7 +108,7 @@ public class RoverTest {
         Rover instance = new Rover();
         instance.place(3, 3);
         instance.move(4, 3);
-        assertEquals(instance.report(), expected);
+        assertEquals(expected, instance.report());
     }
     
     /**
@@ -134,13 +121,13 @@ public class RoverTest {
         Rover instance = new Rover();
         instance.place(3, 3);
         instance.move(3, 5);
-        assertEquals("Failed moving Up (first try)", instance.report(), expected);
+        assertEquals("Failed moving Up (first try)", expected, instance.report());
         instance.move(3, 0);
-        assertEquals("Failed moving down", instance.report(), expected);
+        assertEquals("Failed moving down", expected, instance.report());
         instance.move(0, 3);
-        assertEquals("Failed moving left", instance.report(), expected);
+        assertEquals("Failed moving left", expected, instance.report());
         instance.move(5, 3);
-        assertEquals("Failed moving right", instance.report(), expected);
+        assertEquals("Failed moving right", expected, instance.report());
     }
     
     /**
@@ -152,6 +139,6 @@ public class RoverTest {
         String expected = "";
         Rover instance = new Rover();
         instance.move(3, 3);
-        assertEquals(instance.report(), expected);
+        assertEquals(expected, instance.report());
     }
 }
