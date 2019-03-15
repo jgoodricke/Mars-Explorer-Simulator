@@ -49,8 +49,9 @@ public class InputTest {
         System.out.println("executeCommand");
         String expected = "3,3";
         Input instance = new InputImpl();
+        instance.executeCommand("PLACE " + expected);
         instance.executeCommand("EXPLODE");
-        assertEquals(instance.executeCommand("REPORT"), expected);
+        assertEquals(expected, instance.executeCommand("REPORT"));
     }
 
     /**
