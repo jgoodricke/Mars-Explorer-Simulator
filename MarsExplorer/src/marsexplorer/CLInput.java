@@ -17,6 +17,24 @@ package marsexplorer;
 */
 public class CLInput extends Input {
     public void runSim(){
+        //Stores console input and output
+        String input = "";
+        String output = "";
         
+        //Print list of commands to user
+        System.out.println("Here are the commands you can enter:");
+        System.out.println("PLACE X,Y - Places the rover on the grid (e.g. PLACE 3,3).");
+        System.out.println("MOVE X,Y - Moves the rover to an adjacent space (e.g. MOVE 3,4).");
+        System.out.println("REPORT - Tells you where rover is on the table.");
+        System.out.println("QUIT - Exit program.");
+        
+        //Get input from user and print output until user quits
+        while(!input.equals("QUIT")){
+           input = System.console().readLine();
+           output = executeCommand("input");
+           if (! output.equals("")){
+               System.out.println(output);
+           }
+        }
     }
 }
