@@ -15,7 +15,6 @@ import java.util.Scanner;
 * tabletop, of dimensions 5 units x 5 units.The explorer is free to roam around
 * the surface of the table, but must be cannot move off the table.
 *
-* @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */

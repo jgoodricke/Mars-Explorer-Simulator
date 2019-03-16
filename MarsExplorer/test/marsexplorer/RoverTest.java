@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 /**
 * Tests for the rover class. Tests movement and placing.
 *
-* @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */

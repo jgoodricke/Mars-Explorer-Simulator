@@ -17,7 +17,6 @@ import java.io.File;
 * Reads input commands from the command line to given to a rover object. 
 * Inherits most of its methods from the Input class.
 *
-* @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */

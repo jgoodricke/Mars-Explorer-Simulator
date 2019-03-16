@@ -11,7 +11,6 @@ package marsexplorer;
 * Representation of the mars rover. Knows its own position on the table, and 
 * can move to adjacent spaces and report its position.
 *
-* @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */

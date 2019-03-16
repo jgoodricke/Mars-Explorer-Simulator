@@ -13,7 +13,6 @@ import java.util.Scanner;
 * Reads input commands from a file to be given to a rover object. Inherits most
 * of its methods from the Input class.
 *
-* @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */

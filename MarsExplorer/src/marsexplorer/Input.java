@@ -11,7 +11,6 @@ package marsexplorer;
 * Interprets input and passes them as commands to a Rover object. 
 * Abstract parent class of CLInput and FileInput.
 *
-* @author  James Goodricke
 * @version 1.0
 * @since   2019-03-14 
 */
