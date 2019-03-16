@@ -11,9 +11,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author jggoo
- */
+* Tests for the input class. Tests placing, moving and formatting commands.
+*
+* @author  James Goodricke
+* @version 1.0
+* @since   2019-03-14 
+*/
 public class InputTest {
     
     /**

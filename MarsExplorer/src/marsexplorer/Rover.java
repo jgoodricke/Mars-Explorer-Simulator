@@ -26,6 +26,7 @@ public class Rover {
     private int minX;
     private int minY;
     
+    //Places the rover on the table
     public void place(int x, int y){
         if(inBounds(x, y)){
             posX = x;
@@ -33,6 +34,7 @@ public class Rover {
         }
     }
     
+    //Checks if a space is within the bounds of the table
     private boolean inBounds(int x, int y){
         if(x <= maxX && x >= minX && y <= maxY && y >= minY ){
             return true;
@@ -40,6 +42,7 @@ public class Rover {
         return false;
     }
     
+    //Moves the rover to an adjacent space
     public void move(int x, int y){
         //Check movement position is on the same row or collumn as current position (but not both)
         if((x == posX || y == posY) && !(x == posX && y == posY)){
@@ -56,6 +59,7 @@ public class Rover {
         }
     }
     
+    //Report the rovers current position
     public String report(){
         if(posX != -1 && posY != -1){
             return Integer.toString(posX) + "," + Integer.toString(posY);

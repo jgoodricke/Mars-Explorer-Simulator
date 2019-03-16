@@ -39,6 +39,7 @@ public abstract class Input {
 
     }
     
+    //Processes and executes the move and place commands
     private void moveAndPlace(String input) {
         String command; //Holds the input command (MOVE, or PLACE)
         String[] arguments; //Holds x and y position arguments
@@ -84,5 +85,6 @@ public abstract class Input {
         }
     }
     
+    //Main loop of simulation, getting multiple commands from user or file.
     public abstract void runSim();
 }

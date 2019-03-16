@@ -115,7 +115,7 @@ Expected Result: Successful access for both
 
 Result: Successful access for both
 
-### Test Case 2 – User Cannot Leave Start Screen withou
+### Test Case 2 – User Must Enter Valid Selction on Start Screen
 
 Description: Check that the user cannot get past the main screen without entering a valid input 
 
