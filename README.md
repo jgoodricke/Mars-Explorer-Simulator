@@ -98,3 +98,245 @@ movement of the toy explorer.
 
 Please do not put your name in any of the submitted code since this makes 
 it harder for us to review your submission anonymously.
+
+## Test Cases
+
+### Test Case 1 – Accessing Manual and File Input 
+
+Description: Checks if the user can access the file input and manual input interfaces correctly from the starting screen.
+
+Module: main method
+
+Test Steps:
+
+Enter the command for manual and file input from the main screen
+
+Expected Result: Successful access for both
+
+Result: Successful access for both
+
+### Test Case 2 – User Cannot Leave Start Screen withou
+
+Description: Check that the user cannot get past the main screen without entering a valid input 
+
+Module: main method
+
+Test Steps: 
+
+Enter the following commands:
+3
+
+-1
+
+1.5
+
+Command Line Input
+
+True
+
+Expected Result: Unable to pass start screen.
+
+Result: Unable to pass start screen.
+
+### Test Case 3 – File Input – Testing Bounds and Reporting 
+
+Description: User will enter file input mode, and submit a file that will side of the table, attempt to move off the table, and report. 
+
+Test Data:
+
+PLACE 3,3
+
+MOVE 2,3
+
+MOVE 1,3
+
+MOVE 0,3
+
+MOVE -1,3
+
+REPORT
+
+MOVE 1,3
+
+MOVE 2,3
+
+MOVE 3,3
+
+MOVE 4,3
+
+MOVE 5,3
+
+MOVE 6,3
+
+REPORT
+
+MOVE 4,3
+
+MOVE 3,3
+
+MOVE 3,2
+
+MOVE 3,1
+
+MOVE 3,0
+
+MOVE 3,-1
+
+REPORT
+
+MOVE 3,1
+
+MOVE 3,2
+
+MOVE 3,3
+
+MOVE 3,4
+
+MOVE 3,5
+
+MOVE 3,6
+
+REPORT
+
+Test Steps: 
+
+Copy the above data into a text file and place in the project folder. 
+
+Start the program in file input mode
+
+Expected Result: 
+
+0,3
+
+5,3
+
+3,0
+
+3,5
+
+Result: 
+
+0,3
+
+5,3
+
+3,0
+
+3,5
+
+### Test Case 4 – User Input – Testing Bounds and Reporting 
+
+Description: This test is the same as test 3, except it is performed in CL Input mode.
+
+Test Steps: 
+
+Enter the following commands:
+
+PLACE 3,3
+
+MOVE 2,3
+
+MOVE 1,3
+
+MOVE 0,3
+
+MOVE -1,3
+
+REPORT
+
+MOVE 1,3
+
+MOVE 2,3
+
+MOVE 3,3
+
+MOVE 4,3
+
+MOVE 5,3
+
+MOVE 6,3
+
+REPORT
+
+MOVE 4,3
+
+MOVE 3,3
+
+MOVE 3,2
+
+MOVE 3,1
+
+MOVE 3,0
+
+MOVE 3,-1
+
+REPORT
+
+MOVE 3,1
+
+MOVE 3,2
+
+MOVE 3,3
+
+MOVE 3,4
+
+MOVE 3,5
+
+MOVE 3,6
+
+REPORT
+
+Test Steps: 
+
+Copy the above data into a text file and place in the project folder. 
+
+Start the program in file input mode
+
+Expected Result: 
+
+0,3
+
+5,3
+
+3,0
+
+3,5
+
+Result: 
+
+0,3
+
+5,3
+
+3,0
+
+3,5
+
+### Test Case 5 – Must Place Rover First
+
+Description: User will enter CL input mode, and enter all the available commands without placing the rover first. This will ensure users can’t give the rover commands before he is placed. 
+
+Test Steps: 
+
+Enter the following commands:
+
+MOVE 0,0
+
+REPORT
+
+PLACE 0,0
+
+REPORT
+
+
+Expected Result: 
+
+(No Report)
+
+0,0
+
+Result: 
+
+(No Report)
+
+0,0
