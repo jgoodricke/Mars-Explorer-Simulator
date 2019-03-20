@@ -26,11 +26,18 @@ public class Rover {
     private int minX;
     private int minY;
     
-    public void place(int x, int y){
+    public String place(int x, int y){
         if(inBounds(x, y)){
             posX = x;
             posY = y;
+            
+            //Output Results
+            String xStr = Integer.toString(posX);
+            String yStr = Integer.toString(posY);
+
+            return "P: ("+ xStr + "," + yStr + ")";
         }
+        return "";
     }
     
     private boolean inBounds(int x, int y){
@@ -40,7 +47,7 @@ public class Rover {
         return false;
     }
     
-    public void move(int x, int y){
+    public String move(int x, int y){       
         //Check movement position is on the same row or collumn as current position (but not both)
         if((x == posX || y == posY) && !(x == posX && y == posY)){
             
@@ -49,17 +56,31 @@ public class Rover {
                 
                 //Check position to move to is on the table
                 if(inBounds(x, y)){
+                    String oldXStr = Integer.toString(posX);
+                    String oldYStr = Integer.toString(posY);
+                    
+                    String newXStr = Integer.toString(x);
+                    String newYStr = Integer.toString(y);
+                    
                     posX = x;
                     posY = y;
+                    return "M: ("+ oldXStr + "," + oldYStr + ") (" + newXStr + "," + newYStr + ")";
                 }
             }
         }
+        return "";
     }
     
     public String report(){
+        //If rover has already been placed, report results
         if(posX != -1 && posY != -1){
-            return Integer.toString(posX) + "," + Integer.toString(posY);
-        }
+            
+            String xStr = Integer.toString(posX);
+            String yStr = Integer.toString(posY);
+
+            return "P: ("+ xStr + "," + yStr + ")";   
+       }
+        //Return blank string if rover hasn't been placed
         return "";
     }
     
