@@ -74,10 +74,12 @@ public abstract class Input {
             if (argsCorrect) {
                 //Move
                 if (command.equals("MOVE")) {
-                    return r.move(x, y);
+                    String result = r.move(x, y);
+                    return result;
                 } //Place
                 else if (command.equals("PLACE")) {
-                    return r.place(x, y);
+                    String result = r.place(x, y);
+                    return result;
                 }
             }
         }

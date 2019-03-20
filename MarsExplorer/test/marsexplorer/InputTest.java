@@ -28,7 +28,7 @@ public class InputTest {
         String result;
         String expected = "P: (3,3)";
         Input instance = new InputImpl();
-        result = instance.executeCommand("PLACE " + expected);
+        result = instance.executeCommand("PLACE 3,3");
         assertEquals(expected, result);
     }
     
@@ -42,8 +42,8 @@ public class InputTest {
         String expected = "M: (3,3) (3,4)";
         Input instance = new InputImpl();
         instance.executeCommand("PLACE 3,3");
-        result = instance.executeCommand("MOVE " + expected);
-        assertEquals(result, expected);
+        result = instance.executeCommand("MOVE 3,4");
+        assertEquals(expected, result);
     }
     
     /**
@@ -53,10 +53,10 @@ public class InputTest {
     public void testFormatting() {
         System.out.println("executeCommand");
         String result;
-        String expected = "P:(3,3)";
+        String expected = "P: (3,3)";
         Input instance = new InputImpl();
         result = instance.executeCommand(" place 3,3 ");
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
     
     /**
@@ -65,9 +65,9 @@ public class InputTest {
     @Test
     public void testIncorrectCommand() {
         System.out.println("executeCommand");
-        String expected = "3,3";
+        String expected = "P: (3,3)";
         Input instance = new InputImpl();
-        instance.executeCommand("PLACE " + expected);
+        instance.executeCommand("PLACE 3,3");
         instance.executeCommand("EXPLODE");
         assertEquals(expected, instance.executeCommand("REPORT"));
     }
@@ -78,11 +78,11 @@ public class InputTest {
     @Test
     public void testIncorrectArguments() {
         System.out.println("executeCommand");
-        String expected = "3,3";
+        String expected = "P: (3,3)";
         Input instance = new InputImpl();
-        instance.executeCommand("PLACE " + expected);
+        instance.executeCommand("PLACE 3,3");
         instance.executeCommand("MOVE three,four");
-        assertEquals(instance.executeCommand("REPORT"), expected);
+        assertEquals(expected, instance.executeCommand("REPORT"));
     }
 
      /**
@@ -91,11 +91,11 @@ public class InputTest {
     @Test
     public void testTooManyArguments() {
         System.out.println("executeCommand");
-        String expected = "3,3";
+        String expected = "P: (3,3)";
         Input instance = new InputImpl();
-        instance.executeCommand("PLACE " + expected);
-        instance.executeCommand("MOVE 3,3,3");
-        assertEquals(instance.executeCommand("REPORT"), expected);
+        instance.executeCommand("PLACE 3,3");
+        instance.executeCommand("MOVE 3,4,5");
+        assertEquals(expected, instance.executeCommand("REPORT"));
     }
     
     /**
