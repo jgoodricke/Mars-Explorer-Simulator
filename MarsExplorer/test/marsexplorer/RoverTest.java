@@ -25,12 +25,13 @@ public class RoverTest {
      */
     @Test
     public void testPlace() {
+        String output;
         System.out.println("place");
-        String expected = "3,3";
+        String expected = "P: (3,3)";
         Rover instance = new Rover();
-        instance.place(3, 3);
+        output = instance.place(3, 3);
         // TODO review te generated test code and remove the default call to fail.
-        assertEquals(expected, instance.report());
+        assertEquals(expected, output);
     }
     
     /**
@@ -58,31 +59,48 @@ public class RoverTest {
         instance.place(6, 3);
         assertEquals("Failed on right side", expected, instance.report());   
     }
+    
+    /**
+     * Test rover can report
+     */
+    @Test
+    public void testReport() {
+        String output;
+        System.out.println("place");
+        String expected = "P: (3,3)";
+        Rover instance = new Rover();
+        instance.place(3, 3);
+        output = instance.report();
+        // TODO review te generated test code and remove the default call to fail.
+        assertEquals(expected, output);
+    }
 
     /**
      * Test the rover can move up
      */
     @Test
-    public void testMove() {
+    public void testMoveUp() {
+        String output;
         System.out.println("move up");
-        String expected = "3,4";
+        String expected = "M: (3,3) (3,4)";
         Rover instance = new Rover();
         instance.place(3, 3);
-        instance.move(3, 4);
-        assertEquals("failed moving up", expected, instance.report());
+        output = instance.move(3, 4);
+        assertEquals("failed moving up", expected, output);
     }
     
     /**
      * Test the rover can move down
      */
     @Test
-    public void testMoveDown() {
-        System.out.println("move down");
-        String expected = "3,2";
+    public void testMoveDown() {        
+        String output;
+        System.out.println("move up");
+        String expected = "M: (3,3) (3,2)";
         Rover instance = new Rover();
         instance.place(3, 3);
-        instance.move(3, 2);
-        assertEquals(expected, instance.report());
+        output = instance.move(3, 2);
+        assertEquals("failed moving up", expected, output);
     }
     
     /**
@@ -90,12 +108,13 @@ public class RoverTest {
      */
     @Test
     public void testMoveLeft() {
-        System.out.println("move left");
-        String expected = "2,3";
+        String output;
+        System.out.println("move up");
+        String expected = "M: (3,3) (2,3)";
         Rover instance = new Rover();
         instance.place(3, 3);
-        instance.move(2, 3);
-        assertEquals(expected, instance.report());
+        output = instance.move(2, 3);
+        assertEquals("failed moving up", expected, output);
     }
     
     /**
@@ -103,12 +122,13 @@ public class RoverTest {
      */
     @Test
     public void testMoveRight() {
-        System.out.println("move right");
-        String expected = "4,3";
+        String output;
+        System.out.println("move up");
+        String expected = "M: (3,3) (4,3)";
         Rover instance = new Rover();
         instance.place(3, 3);
-        instance.move(4, 3);
-        assertEquals(expected, instance.report());
+        output = instance.move(4, 3);
+        assertEquals("failed moving up", expected, output);
     }
     
     /**
@@ -117,7 +137,7 @@ public class RoverTest {
     @Test
     public void testOnlyMoveAdjacent() {
         System.out.println("move fail");
-        String expected = "3,3";
+        String expected = "P: (3,3)";
         Rover instance = new Rover();
         instance.place(3, 3);
         instance.move(3, 5);
@@ -146,9 +166,9 @@ public class RoverTest {
      * Test the rover to a space where the x and y coordinates are the same
      */
     @Test
-    public void testMoveSame() {
+    public void testMoveToSame() {
         System.out.println("move up");
-        String expected = "2,2";
+        String expected = "P: (2,2)";
         Rover instance = new Rover();
         instance.place(3, 2);
         instance.move(2, 2);
