@@ -97,6 +97,20 @@ public class InputTest {
         instance.executeCommand("MOVE 3,4,5");
         assertEquals(expected, instance.executeCommand("REPORT"));
     }
+    /**
+     * Test that rover can move to position with the same x and y value.
+     */
+    @Test
+    public void testMoveSame() {
+        System.out.println("executeCommand");
+        String result;
+        String expected = "M: (3,2) (3,3)";
+        Input instance = new InputImpl();
+        instance.executeCommand("PLACE 3,2");
+        result = instance.executeCommand("MOVE 3,3");
+        assertEquals(expected, result);
+    }
+    
     
     /**
      * Test class to implement so input can be initialised for testing.
@@ -105,6 +119,5 @@ public class InputTest {
 
         public void runSim() {
         }
-    }
-    
+    } 
 }
