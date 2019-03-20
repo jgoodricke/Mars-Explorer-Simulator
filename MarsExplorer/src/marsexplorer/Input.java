@@ -31,15 +31,14 @@ public abstract class Input {
         
         //If not report, begin processing input to get command and arguments
         else{
-            moveAndPlace(input);
+            return moveAndPlace(input);
             //If not reporting, return empty string
-            return ""; 
         }
 
     }
     
     //Processes and executes the move and place commands
-    private void moveAndPlace(String input) {
+    private String moveAndPlace(String input) {
         String command; //Holds the input command (MOVE, or PLACE)
         String[] arguments; //Holds x and y position arguments
         boolean argsCorrect = true; //Used in check if arguments are int
@@ -75,13 +74,15 @@ public abstract class Input {
             if (argsCorrect) {
                 //Move
                 if (command.equals("MOVE")) {
-                    r.move(x, y);
+                    return r.move(x, y);
                 } //Place
                 else if (command.equals("PLACE")) {
-                    r.place(x, y);
+                    return r.place(x, y);
                 }
             }
         }
+        //If unable to move or place, return empty string.
+        return "";
     }
     
     //Main loop of simulation, getting multiple commands from user or file.
