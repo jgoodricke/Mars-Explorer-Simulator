@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+* This file is part of Mars Explorer Simulator. Mars Explorer Simulator is 
+* free software that can be redistributed and/or modified under the terms 
+* of the GNU General Public License. See the licence agreement included with 
+* the source code, or <https://www.gnu.org/licenses/>, for further details.
  */
 package marsexplorer;
 
@@ -17,28 +18,43 @@ import static org.junit.Assert.*;
 public class InputTest {
     
     /**
-     * Test placing rover using input
+     * Test placing rover using input.
      */
     @Test
     public void testExecutePlace() {
         System.out.println("executeCommand");
-        String expected = "3,3";
+        String result;
+        String expected = "P: (3,3)";
         Input instance = new InputImpl();
-        instance.executeCommand("PLACE " + expected);
-        assertEquals(instance.executeCommand("REPORT"), expected);
+        result = instance.executeCommand("PLACE " + expected);
+        assertEquals(expected, result);
     }
     
     /**
-     * Test moving rover using input
+     * Test moving rover using input.
      */
     @Test
     public void testExecuteMove() {
         System.out.println("executeCommand");
-        String expected = "3,4";
+        String result;
+        String expected = "M: (3,3) (3,4)";
         Input instance = new InputImpl();
         instance.executeCommand("PLACE 3,3");
-        instance.executeCommand("MOVE " + expected);
-        assertEquals(instance.executeCommand("REPORT"), expected);
+        result = instance.executeCommand("MOVE " + expected);
+        assertEquals(result, expected);
+    }
+    
+    /**
+     * Test Command with different formatting.
+     */
+    @Test
+    public void testFormatting() {
+        System.out.println("executeCommand");
+        String result;
+        String expected = "P:(3,3)";
+        Input instance = new InputImpl();
+        result = instance.executeCommand(" place 3,3 ");
+        assertEquals(result, expected);
     }
     
     /**
@@ -55,19 +71,7 @@ public class InputTest {
     }
 
     /**
-     * Test Command with different formatting
-     */
-    @Test
-    public void testFormatting() {
-        System.out.println("executeCommand");
-        String expected = "3,3";
-        Input instance = new InputImpl();
-        instance.executeCommand(" place 3,3 ");
-        assertEquals(instance.executeCommand("REPORT"), expected);
-    }
-
-    /**
-     * Test Command with incorrect arguments
+     * Test Command with incorrect arguments.
      */
     @Test
     public void testIncorrectArguments() {
@@ -78,9 +82,9 @@ public class InputTest {
         instance.executeCommand("MOVE three,four");
         assertEquals(instance.executeCommand("REPORT"), expected);
     }
-    //Too many arguments
+
      /**
-     * Test Command with incorrect arguments
+     * Test Command with incorrect arguments.
      */
     @Test
     public void testTooManyArguments() {
@@ -93,7 +97,7 @@ public class InputTest {
     }
     
     /**
-     * Test class to implement input for testing
+     * Test class to implement so input can be initialised for testing.
      */
     public class InputImpl extends Input {
 
