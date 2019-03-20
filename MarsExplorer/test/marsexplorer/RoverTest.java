@@ -140,4 +140,17 @@ public class RoverTest {
         instance.move(3, 3);
         assertEquals(expected, instance.report());
     }
+    
+    /**
+     * Test the rover to a space where the x and y coordinates are the same
+     */
+    @Test
+    public void testMoveSame() {
+        System.out.println("move up");
+        String expected = "2,2";
+        Rover instance = new Rover();
+        instance.place(3, 2);
+        instance.move(2, 2);
+        assertEquals("failed moving up", expected, instance.report());
+    }
 }
