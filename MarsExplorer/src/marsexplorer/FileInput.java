@@ -63,7 +63,6 @@ public class FileInput extends Input {
             }
             //Print input from file, execute input and print relevant output
             if(input != null){
-                System.out.println(input);
                 output = executeCommand(input);
                 if(output != ""){
                     System.out.println(output);
