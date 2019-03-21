@@ -91,8 +91,8 @@ public class Rover {
         posX = -1;
         posY = -1;
 
-        maxX = 5;
-        maxY = 5;
+        maxX = 4;
+        maxY = 4;
         minX = 0;
         minY = 0;
     }
